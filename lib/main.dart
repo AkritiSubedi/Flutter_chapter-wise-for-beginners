@@ -16,30 +16,43 @@ class Homepage extends StatelessWidget {
         appBar: AppBar(
           title: Text("Awesome App"),
         ),
-        body: Center(
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Align(
+            alignment: Alignment.bottomLeft,
             child: Container(
-          padding: EdgeInsets.all(8),
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 5,
-                    offset: Offset(2.0, 10.0)),
-              ],
-              color: Colors.amber,
-              gradient: LinearGradient(colors: [Colors.purple, Colors.pink])),
-          width: 100,
-          height: 100,
-          child: Text(
-            "Box",
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
+              color: Colors.black,
+              width: 200,
+              height: 400,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                  padding: EdgeInsets.all(8),
+                  width: 100,
+                  height: 100,
+                  color: Colors.red,
+                ),
+                Container(
+                  padding: EdgeInsets.all(8),
+                  width: 100,
+                  height: 100,
+                  color: Colors.purple,
+                ),
+                Container(
+                  padding: EdgeInsets.all(8),
+                  width: 100,
+                  height: 100,
+                  color: Colors.yellow,
+                )
+                  ],
+                ),
+              ),
             ),
           ),
-        )));
+        ));
   }
 }
