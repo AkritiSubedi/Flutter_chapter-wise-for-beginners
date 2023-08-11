@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: "App",
-    home: Homepage(),
-  ));
+  runApp(
+    MaterialApp(
+      title: "App",
+      home: Homepage(),
+      theme: ThemeData(
+        primarySwatch: Colors.purple,
+      ),
+    ),
+  );
 }
 
 class Homepage extends StatelessWidget {
@@ -13,46 +18,44 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Awesome App"),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Align(
-            alignment: Alignment.bottomLeft,
-            child: Container(
-              color: Colors.black,
-              width: 200,
-              height: 400,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                  padding: EdgeInsets.all(8),
-                  width: 100,
-                  height: 100,
-                  color: Colors.red,
-                ),
-                Container(
-                  padding: EdgeInsets.all(8),
-                  width: 100,
-                  height: 100,
-                  color: Colors.purple,
-                ),
-                Container(
-                  padding: EdgeInsets.all(8),
-                  width: 100,
-                  height: 100,
-                  color: Colors.yellow,
-                )
-                  ],
-                ),
+      appBar: AppBar(
+        title: Text("Awesome App"),
+      ),
+      body: Container(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text("Akriti Subedi"), 
+              accountEmail: Text("aakusubedi075@gmail.com"),
+              currentAccountPicture:CircleAvatar(
+                backgroundImage: NetworkImage("https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80"),
+              ) ,
               ),
+            ListTile(leading: Icon(Icons.person),
+            title: Text("Account"),
+            subtitle: Text("Personal"),
+            trailing: Icon(Icons.edit),
             ),
-          ),
-        ));
+            ListTile(leading: Icon(Icons.email),
+            title: Text("Email"),
+            subtitle: Text("Personal"),
+            trailing: Icon(Icons.send),
+            ),
+            ListTile(leading: Icon(Icons.location_city),
+            title: Text("Location"),
+            subtitle: Text("Personal"),
+            trailing: Icon(Icons.search),
+            )
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.edit),
+      ),
+    );
   }
 }
