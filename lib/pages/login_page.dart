@@ -2,6 +2,8 @@ import 'package:beginners/bg_Image.dart';
 import 'package:beginners/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
+import '../utils/Constants.dart';
+
 class Loginpage extends StatefulWidget {
   const Loginpage({Key? key}) : super(key: key);
 
@@ -69,6 +71,9 @@ class _LoginpageState extends State<Loginpage> {
                               // context,
                               // MaterialPageRoute(
                               //   builder: (context) => Homepage()));
+                              Constants.prefs.setBool("loggedIn", true);
+                              Navigator.restorablePushReplacementNamed(
+                                  context, "/home");
                               Navigator.pushNamed(context, "/home");
                             }, // Provide the function to execute here
 
